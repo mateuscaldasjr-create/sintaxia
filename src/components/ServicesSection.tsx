@@ -5,23 +5,23 @@ const ServicesSection = () => {
     {
       icon: MessageSquare,
       title: "Atendimento Cognitivo",
-      description: "Customer Success 24/7",
-      details: "Agentes de IA que entendem contexto, resolvem problemas complexos e proporcionam experiências personalizadas para seus clientes a qualquer hora.",
-      features: ["Suporte multicanal", "Respostas contextuais", "Escalação inteligente"],
+      description: "Suporte Instantâneo",
+      details: "Suporte que resolve problemas via WhatsApp/Web em segundos, com compreensão contextual e respostas personalizadas 24/7.",
+      features: ["WhatsApp & Web Chat", "Respostas em segundos", "Escalação inteligente"],
     },
     {
       icon: Cog,
-      title: "Operações Autônomas",
-      description: "Integrações ERP/CRM",
-      details: "Automação end-to-end que conecta seus sistemas, elimina tarefas manuais e mantém seus dados sincronizados em tempo real.",
-      features: ["Sincronização automática", "Workflows personalizados", "Zero intervenção manual"],
+      title: "Orquestração de Workflows",
+      description: "Automação Total",
+      details: "Automação total entre ERP, CRM e Planilhas. Seus sistemas conversam entre si sem intervenção humana.",
+      features: ["Integração ERP/CRM", "Sync de planilhas", "Zero intervenção manual"],
     },
     {
       icon: Target,
       title: "SDR Inteligente",
-      description: "Qualificação de Leads",
-      details: "Agentes de prospecção que identificam, qualificam e nutrem leads automaticamente, aumentando sua taxa de conversão.",
-      features: ["Qualificação automatizada", "Follow-up inteligente", "Scoring preditivo"],
+      description: "Prospecção em Escala",
+      details: "Prospecção humana em massa para seu time de vendas. Qualificação e nutrição de leads em piloto automático.",
+      features: ["Prospecção automatizada", "Follow-up inteligente", "Qualificação em massa"],
     },
   ];
 
