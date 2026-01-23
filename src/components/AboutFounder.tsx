@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Cpu, Zap, Target } from "lucide-react";
+import { ArrowRight, User } from "lucide-react";
 
 const AboutFounder = () => {
   return (
@@ -10,37 +10,29 @@ const AboutFounder = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Image placeholder */}
+          {/* Left: Professional Portrait Placeholder */}
           <div className="relative">
-            <div className="glass-card rounded-3xl overflow-hidden border border-border/50 aspect-[4/5] relative group">
+            <div className="glass-card rounded-3xl overflow-hidden border border-border/50 aspect-[3/4] relative group max-w-md mx-auto lg:mx-0">
               {/* Placeholder gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-muted to-primary/10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-muted to-primary/5" />
               
-              {/* Geometric pattern overlay */}
-              <div className="absolute inset-0 tech-grid opacity-30" />
+              {/* Subtle pattern overlay */}
+              <div className="absolute inset-0 tech-grid opacity-20" />
               
-              {/* Center icon */}
+              {/* Portrait placeholder */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-2xl bg-secondary/20 flex items-center justify-center group-hover:bg-secondary/30 transition-colors duration-500">
-                    <Cpu className="w-12 h-12 text-secondary" />
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20 group-hover:border-secondary/40 transition-colors duration-500">
+                    <User className="w-16 h-16 text-secondary/60" />
                   </div>
-                  <p className="text-muted-foreground font-body text-sm">
-                    Imagem do Fundador
+                  <p className="text-muted-foreground/60 font-body text-sm">
+                    Foto Profissional
                   </p>
                 </div>
               </div>
 
               {/* Glow border on hover */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/30 transition-colors duration-500" />
-            </div>
-
-            {/* Floating accent cards */}
-            <div className="absolute -bottom-6 -right-6 glass-card rounded-xl p-4 border border-secondary/20 hidden md:block">
-              <div className="flex items-center gap-3">
-                <Zap className="w-5 h-5 text-primary" />
-                <span className="text-foreground font-heading font-semibold text-sm">+50 Automações</span>
-              </div>
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/20 transition-colors duration-500" />
             </div>
           </div>
 
@@ -48,7 +40,7 @@ const AboutFounder = () => {
           <div className="space-y-8">
             <div>
               <p className="text-secondary font-body font-medium tracking-widest uppercase mb-4">
-                Sobre Nós
+                Sobre o Fundador
               </p>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight mb-6">
                 A Mentalidade{" "}
@@ -56,42 +48,34 @@ const AboutFounder = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
                 <p>
-                  Na Sintax IA, acreditamos que a tecnologia de ponta não deve ser privilégio de poucos. 
-                  Nossa missão é construir a ponte entre operações humanas e inteligência artificial, 
-                  democratizando o acesso a automações que antes eram exclusivas de grandes corporações.
+                  Na Sintax IA, construímos a ponte entre a complexidade tecnológica e a simplicidade operacional. 
+                  Cada agente que desenvolvemos nasce de uma obsessão: eliminar a fricção entre o que sua empresa 
+                  precisa fazer e a velocidade com que consegue executar.
                 </p>
                 <p>
-                  Combinamos expertise técnica com visão estratégica para criar agentes de IA que 
-                  não apenas executam tarefas, mas entendem o contexto do seu negócio e evoluem 
-                  junto com suas operações.
+                  Nossa filosofia é clara — tecnologia de elite não deve ser privilégio de corporações com 
+                  orçamentos milionários. Democratizamos o acesso a automações inteligentes, construindo 
+                  soluções que entendem o contexto único do seu negócio e evoluem junto com suas operações.
+                </p>
+                <p>
+                  Não vendemos promessas. Entregamos arquiteturas que funcionam, métricas que comprovam 
+                  e resultados que falam por si.
                 </p>
               </div>
             </div>
 
-            {/* Value props */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-secondary/10">
-                  <Target className="w-5 h-5 text-secondary" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-semibold text-foreground">Precisão Cirúrgica</h4>
-                  <p className="text-muted-foreground font-body text-sm">Soluções sob medida para cada operação</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Zap className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-semibold text-foreground">Velocidade Real</h4>
-                  <p className="text-muted-foreground font-body text-sm">Da ideia à produção em semanas</p>
-                </div>
-              </div>
+            {/* Founder Signature */}
+            <div className="pt-4 border-t border-border/30">
+              <p className="text-secondary text-glow-cyan font-heading font-bold text-xl mb-1">
+                [Nome do Fundador]
+              </p>
+              <p className="text-muted-foreground font-body text-sm tracking-wide">
+                Founder & Director of Strategy
+              </p>
             </div>
 
             <Button variant="cta" size="xl" className="group">
-              Conhecer Nossa Equipe
+              Agendar Diagnóstico
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
