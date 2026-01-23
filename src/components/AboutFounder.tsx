@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import founderImage from "@/assets/founder-mateus-passos.jpeg";
 
 const AboutFounder = () => {
   return (
@@ -13,26 +14,18 @@ const AboutFounder = () => {
           {/* Left: Professional Portrait Placeholder */}
           <div className="relative">
             <div className="glass-card rounded-3xl overflow-hidden border border-border/50 aspect-[3/4] relative group max-w-md mx-auto lg:mx-0">
-              {/* Placeholder gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-muted to-primary/5" />
+              {/* Founder Photo */}
+              <img 
+                src={founderImage} 
+                alt="Mateus Passos - Founder & Director of Strategy" 
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
               
-              {/* Subtle pattern overlay */}
-              <div className="absolute inset-0 tech-grid opacity-20" />
-              
-              {/* Portrait placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20 group-hover:border-secondary/40 transition-colors duration-500">
-                    <User className="w-16 h-16 text-secondary/60" />
-                  </div>
-                  <p className="text-muted-foreground/60 font-body text-sm">
-                    Foto Profissional
-                  </p>
-                </div>
-              </div>
+              {/* Subtle overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
 
               {/* Glow border on hover */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/20 transition-colors duration-500" />
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/30 transition-colors duration-500" />
             </div>
           </div>
 
@@ -67,7 +60,7 @@ const AboutFounder = () => {
             {/* Founder Signature */}
             <div className="pt-4 border-t border-border/30">
               <p className="text-secondary text-glow-cyan font-heading font-bold text-xl mb-1">
-                [Nome do Fundador]
+                Mateus Passos
               </p>
               <p className="text-muted-foreground font-body text-sm tracking-wide">
                 Founder & Director of Strategy
