@@ -6,25 +6,29 @@ const MethodologySection = () => {
       number: "01",
       icon: Search,
       title: "Auditoria",
-      description: "Análise profunda dos seus processos atuais para identificar oportunidades de automação com maior impacto.",
+      subtitle: "Mapeamento de perdas",
+      description: "Identificamos gargalos, ineficiências e oportunidades de automação com maior impacto no seu negócio.",
     },
     {
       number: "02",
       icon: PenTool,
       title: "Arquitetura",
-      description: "Design personalizado dos agentes de IA, mapeando integrações e fluxos de trabalho otimizados.",
+      subtitle: "Desenho da lógica do Agente",
+      description: "Projetamos a inteligência, integrações e fluxos de decisão do seu Agente customizado.",
     },
     {
       number: "03",
       icon: Rocket,
       title: "Implementação",
-      description: "Deploy gradual e controlado, com treinamento dos agentes e validação em ambiente real.",
+      subtitle: "Integração sem fricção",
+      description: "Deploy controlado com conexão aos seus sistemas existentes e validação em ambiente real.",
     },
     {
       number: "04",
       icon: LineChart,
-      title: "Otimização",
-      description: "Monitoramento contínuo e refinamento para maximizar resultados e ROI.",
+      title: "Evolução",
+      subtitle: "Monitoramento e ROI contínuo",
+      description: "Acompanhamento de métricas, refinamento constante e maximização do retorno sobre investimento.",
     },
   ];
 
@@ -77,9 +81,12 @@ const MethodologySection = () => {
                     </div>
 
                     {/* Content */}
-                    <h3 className="font-heading font-bold text-xl mb-3">
+                    <h3 className="font-heading font-bold text-xl mb-1">
                       {step.title}
                     </h3>
+                    <p className="text-secondary text-xs font-medium mb-3">
+                      {step.subtitle}
+                    </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {step.description}
                     </p>

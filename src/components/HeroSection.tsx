@@ -25,17 +25,17 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="font-heading font-black text-4xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-up animate-delay-100">
-            Sua Operação em{" "}
+            A arquitetura da eficiência.{" "}
             <span className="text-secondary text-glow-cyan">
-              Velocidade de Pensamento
+              A velocidade da execução
             </span>
             <span className="text-primary">.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animate-delay-200">
-            Projetamos e implementamos Agentes de IA que automatizam processos 
-            complexos e escalam sua empresa com precisão sintética.
+            Projetamos Agentes de IA customizados que eliminam gargalos operacionais 
+            e transformam processos lentos em fluxos de trabalho autônomos.
           </p>
 
           {/* CTA Buttons */}
