@@ -138,6 +138,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* Compliance Text */}
+        <div className="mt-8 text-center">
+          <p className="text-xs text-muted-foreground/40 max-w-2xl mx-auto leading-relaxed">
+            Sintax IA - Consultoria Estratégica de Inteligência Artificial. Projetos desenvolvidos sob rigorosos padrões de segurança e performance.
+          </p>
+        </div>
       </div>
     </footer>
   );
