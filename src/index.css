@@ -94,6 +94,7 @@
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-500;
     background: var(--gradient-card-hover);
+    pointer-events: none;
   }
 
   .glass-card:hover::before {
