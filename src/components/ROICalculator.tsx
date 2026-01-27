@@ -4,6 +4,9 @@ import { Slider } from "@/components/ui/slider";
 import { Calculator, ArrowRight, TrendingUp } from "lucide-react";
 
 const ROICalculator = () => {
+  const getWhatsAppLink = () => {
+    return `https://wa.me/5571982435004?text=Olá!+Acabei+de+calcular+meu+potencial+de+economia+na+calculadora+da+Sintax+IA+e+quero+saber+como+implementar+esses+agentes+na+minha+empresa.`;
+  };
   const [employees, setEmployees] = useState(10);
   const [salary, setSalary] = useState(5000);
   const [hoursPerWeek, setHoursPerWeek] = useState(20);
@@ -152,9 +155,11 @@ const ROICalculator = () => {
                   <p className="text-muted-foreground text-xs mt-2">por mês</p>
                 </div>
 
-                <Button variant="cta" size="xl" className="group mt-4">
-                  Solicitar este ROI agora
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <Button variant="cta" size="xl" className="group mt-4" asChild>
+                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                    Solicitar este ROI agora
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </a>
                 </Button>
               </div>
             </div>
