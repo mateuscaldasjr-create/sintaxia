@@ -17,8 +17,10 @@ const Navigation = () => {
   const navLinks = [
     { href: "#servicos", label: "Serviços" },
     { href: "#metodo", label: "Método" },
-    { href: "#contato", label: "Contato" },
+    { href: "#faq", label: "FAQ" },
   ];
+
+  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
 
   return (
     <nav
@@ -94,8 +96,10 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <Button variant="cta" size="default">
-              Agendar Diagnóstico
+            <Button variant="cta" size="default" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                Agendar Diagnóstico
+              </a>
             </Button>
           </div>
 
@@ -122,8 +126,10 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="cta" size="lg" className="mt-4">
-                Agendar Diagnóstico
+              <Button variant="cta" size="lg" className="mt-4" asChild>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  Agendar Diagnóstico
+                </a>
               </Button>
             </div>
           </div>

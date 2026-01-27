@@ -35,6 +35,8 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
+
   return (
     <section id="faq" className="py-24 relative">
       {/* Background accents */}
@@ -82,9 +84,11 @@ const FAQSection = () => {
             <p className="text-muted-foreground font-body mb-4">
               Ainda tem dúvidas técnicas?
             </p>
-            <Button variant="ghost" className="text-secondary hover:text-secondary hover:bg-secondary/10 group">
-              Agende uma conversa rápida
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Button variant="ghost" className="text-secondary hover:text-secondary hover:bg-secondary/10 group" asChild>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                Agende uma conversa rápida
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
         </div>
