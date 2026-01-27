@@ -12,25 +12,25 @@ const faqs = [
     id: "humanos",
     icon: Users,
     question: "Substitui humanos?",
-    answer: "Absolutamente não. Nossos agentes de IA são projetados para amplificar a capacidade humana, não substituí-la. Eliminamos tarefas repetitivas e de baixo valor para que sua equipe possa focar no que realmente importa: pensamento estratégico, relacionamento com clientes e tomadas de decisão complexas. O resultado? Profissionais mais satisfeitos e operações mais lucrativas.",
+    answer: "Não. Nossa tecnologia foca em Potencialização Humana. Os agentes assumem as tarefas repetitivas e braçais — como agendamentos e triagem — para que sua equipe foque no que realmente gera lucro: o atendimento consultivo e o fechamento de vendas. É escala sem aumento de folha de pagamento.",
   },
   {
     id: "seguranca",
     icon: Shield,
     question: "Segurança de Dados?",
-    answer: "A segurança é a espinha dorsal de cada solução que construímos. Implementamos protocolos rigorosos de conformidade com a LGPD, criptografia de ponta a ponta e infraestrutura isolada para cada cliente. Seus dados nunca são compartilhados ou utilizados para treinar modelos externos. Auditoria completa e rastreabilidade de cada ação executada pelos agentes.",
+    answer: "Segurança é nosso pilar central. Utilizamos protocolos de criptografia de ponta a ponta e operamos em total conformidade com a LGPD. Os dados da sua operação permanecem isolados e protegidos, garantindo sigilo absoluto e ética no processamento das informações.",
   },
   {
     id: "tempo",
     icon: Clock,
     question: "Tempo para Resultados?",
-    answer: "Velocidade é parte do nosso DNA. A implementação média é de 15 dias úteis, do diagnóstico inicial até a operação em produção. Trabalhamos em sprints ágeis com entregas incrementais, permitindo que você veja valor desde a primeira semana. Projetos mais complexos podem levar até 30 dias, mas sempre com marcos claros de progresso.",
+    answer: "Diferente de consultorias de TI tradicionais, a Sintax IA foca em agilidade. O ciclo médio de auditoria, treinamento da IA e implementação é de 15 a 21 dias. Uma vez ativo, o agente começa a processar leads e organizar sua agenda imediatamente, com ROI visível já no primeiro mês.",
   },
   {
     id: "integracoes",
     icon: Plug,
     question: "Integrações Disponíveis?",
-    answer: "Conectamos com praticamente qualquer sistema que sua empresa já utiliza. CRMs como Salesforce e HubSpot, ERPs, plataformas de comunicação como WhatsApp e Slack, ferramentas de produtividade Google Workspace e Microsoft 365, além de APIs customizadas. Se existe uma API, nós integramos.",
+    answer: "Nossos agentes são projetados para conectividade total. Integramos nativamente com WhatsApp, Google Calendar, HubSpot, RD Station, Salesforce e os principais ERPs do mercado. Construímos a ponte inteligente para que você não precise trocar as ferramentas que já utiliza.",
   },
 ];
 
