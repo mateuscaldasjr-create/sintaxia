@@ -1,4 +1,5 @@
 import { MessageSquare, Cog, Target, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -32,6 +33,7 @@ const ServicesSection = () => {
       description: "Suporte Instantâneo",
       details: "Suporte que resolve problemas via WhatsApp/Web em segundos, com compreensão contextual e respostas personalizadas 24/7.",
       features: ["WhatsApp & Web Chat", "Respostas em segundos", "Escalação inteligente"],
+      slug: "atendimento-cognitivo"
     },
     {
       icon: Cog,
@@ -39,6 +41,7 @@ const ServicesSection = () => {
       description: "Automação Total",
       details: "Automação total entre ERP, CRM e Planilhas. Seus sistemas conversam entre si sem intervenção humana.",
       features: ["Integração ERP/CRM", "Sync de planilhas", "Zero intervenção manual"],
+      slug: "orquestracao-workflows"
     },
     {
       icon: Target,
@@ -46,6 +49,7 @@ const ServicesSection = () => {
       description: "Prospecção em Escala",
       details: "Prospecção humana em massa para seu time de vendas. Qualificação e nutrição de leads em piloto automático.",
       features: ["Prospecção automatizada", "Follow-up inteligente", "Qualificação em massa"],
+      slug: "sdr-inteligente"
     },
   ];
 
@@ -112,7 +116,7 @@ const ServicesSection = () => {
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2 mt-auto">
+                <ul className="space-y-2 mt-auto mb-8">
                   {service.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-secondary/60" />
@@ -120,10 +124,21 @@ const ServicesSection = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Call to Action View Detail */}
+                <div className="mt-auto">
+                    <Link 
+                      to={`/servicos/${service.slug}`}
+                      className="inline-flex w-full items-center justify-center gap-2 py-3 px-4 rounded-xl bg-secondary/10 text-secondary hover:bg-secondary hover:text-secondary-foreground font-medium transition-all duration-300 border border-secondary/20 hover:border-secondary"
+                    >
+                      Descobrir Mais
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                </div>
               </div>
 
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
