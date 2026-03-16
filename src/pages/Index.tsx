@@ -12,6 +12,8 @@ import AboutFounder from "@/components/AboutFounder";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollReveal from "@/components/ScrollReveal";
+import SocialProofTicker from "@/components/SocialProofTicker";
+import AnimatedCounters from "@/components/AnimatedCounters";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -35,6 +37,8 @@ const Index = () => {
       
       <HeroSection />
       
+      <SocialProofTicker />
+      
       <ScrollReveal>
         <TrustSection />
       </ScrollReveal>
@@ -47,6 +51,12 @@ const Index = () => {
       
       <ScrollReveal>
         <GapSection />
+      </ScrollReveal>
+      
+      <div className="section-divider" />
+      
+      <ScrollReveal>
+        <AnimatedCounters />
       </ScrollReveal>
       
       <div className="section-divider" />
