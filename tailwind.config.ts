@@ -58,8 +58,8 @@ export default {
         cyan: {
           glow: "hsl(var(--cyan-glow))",
         },
-        orange: {
-          cyber: "hsl(var(--orange-cyber))",
+        purple: {
+          glow: "hsl(var(--purple-glow))",
         },
       },
       borderRadius: {

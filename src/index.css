@@ -17,8 +17,8 @@
     --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
 
-    /* Cyber Orange Primary */
-    --primary: 22 100% 50%;
+    /* Electric Purple Primary */
+    --primary: 271 76% 53%;
     --primary-foreground: 0 0% 100%;
 
     /* Electric Cyan Secondary */
@@ -46,18 +46,19 @@
     --obsidian: 0 0% 4%;
     --obsidian-light: 0 0% 8%;
     --cyan-glow: 185 100% 50%;
-    --orange-cyber: 22 100% 50%;
+    --purple-glow: 271 76% 53%;
     --glass-bg: 0 0% 100% / 0.03;
     --glass-border: 0 0% 100% / 0.08;
 
     /* Gradients */
-    --gradient-glow: linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(22 100% 50% / 0.1));
+    --gradient-glow: linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(271 76% 53% / 0.2));
     --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(185 100% 50% / 0.15), transparent);
-    --gradient-card-hover: linear-gradient(135deg, hsl(185 100% 50% / 0.1), hsl(22 100% 50% / 0.05));
+    --gradient-card-hover: linear-gradient(135deg, hsl(185 100% 50% / 0.1), hsl(271 76% 53% / 0.1));
 
     /* Shadows */
     --shadow-glow-cyan: 0 0 40px hsl(185 100% 50% / 0.3);
-    --shadow-glow-orange: 0 0 30px hsl(22 100% 50% / 0.4);
+    --shadow-glow-purple: 0 0 30px hsl(271 76% 53% / 0.4);
+    --shadow-glow-intense: 0 0 60px hsl(185 100% 50% / 0.4), 0 0 80px hsl(271 76% 53% / 0.2);
     --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
   }
 }
@@ -138,11 +139,11 @@
   /* CTA Button Glow */
   .cta-glow {
     @apply relative;
-    box-shadow: 0 0 20px hsl(22 100% 50% / 0.4);
+    box-shadow: 0 0 20px hsl(271 76% 53% / 0.4);
   }
 
   .cta-glow:hover {
-    box-shadow: 0 0 40px hsl(22 100% 50% / 0.6);
+    box-shadow: 0 0 40px hsl(271 76% 53% / 0.6);
   }
 
   /* Cyan Text Glow */
