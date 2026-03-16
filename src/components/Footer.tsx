@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Linkedin, Instagram, Mail, ArrowRight } from "lucide-react";
 
 const Footer = () => {
+  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
+
   return (
     <footer id="contato" className="relative py-20 overflow-hidden border-t border-border/30">
       {/* Background */}
@@ -17,9 +19,11 @@ const Footer = () => {
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
             Agende uma conversa gratuita e descubra como podemos acelerar sua operação.
           </p>
-          <Button variant="cta" size="xl" className="group">
-            Agendar Diagnóstico Gratuito
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <Button variant="cta" size="xl" className="group" asChild>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              Agendar Diagnóstico Gratuito
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
           </Button>
         </div>
 
@@ -89,21 +93,25 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/sintaxia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-secondary hover:border-secondary/30 transition-all duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/sintaxia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-secondary hover:border-secondary/30 transition-all duration-300"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="mailto:contato@sintaxia.app"
               className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-secondary hover:border-secondary/30 transition-all duration-300"
               aria-label="Email"
             >

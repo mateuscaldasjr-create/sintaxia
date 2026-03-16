@@ -17,7 +17,9 @@ const Navigation = () => {
   const navLinks = [
     { href: "#servicos", label: "Serviços" },
     { href: "#metodo", label: "Método" },
+    { href: "#cases", label: "Cases" },
     { href: "#faq", label: "FAQ" },
+    { href: "#diagnostico", label: "Diagnóstico" },
   ];
 
   const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";

@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Calculator, ArrowRight, TrendingUp } from "lucide-react";
+import { Calculator, ArrowRight, TrendingUp, CheckCircle, Sparkles } from "lucide-react";
 
 const ROICalculator = () => {
-  const getWhatsAppLink = () => {
-    return `https://wa.me/5571982435004?text=Olá!+Acabei+de+calcular+meu+potencial+de+economia+na+calculadora+da+Sintax+IA+e+quero+saber+como+implementar+esses+agentes+na+minha+empresa.`;
-  };
   const [employees, setEmployees] = useState(10);
   const [salary, setSalary] = useState(5000);
   const [hoursPerWeek, setHoursPerWeek] = useState(20);
+  const [showLeadForm, setShowLeadForm] = useState(false);
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadData, setLeadData] = useState({ name: "", email: "", whatsapp: "" });
+  const [submitting, setSubmitting] = useState(false);
 
   // Calculate Monthly Loss: (Employees * (Salary/160) * Hours/Week * 4)
   const hourlyRate = salary / 160;
@@ -155,12 +156,83 @@ const ROICalculator = () => {
                   <p className="text-muted-foreground text-xs mt-2">por mês</p>
                 </div>
 
-                <Button variant="cta" size="xl" className="group mt-4" asChild>
-                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                    Solicitar este ROI agora
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </a>
+                <Button variant="cta" size="xl" className="group mt-4" onClick={() => setShowLeadForm(true)}>
+                  {!showLeadForm && (
+                    <>
+                      Solicitar este ROI agora
+                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </>
+                  )}
                 </Button>
+
+                {/* Lead Capture Mini-Form */}
+                {showLeadForm && !leadSubmitted && (
+                  <div className="mt-6 p-6 glass-card border border-secondary/20 text-left animate-fade-up">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Sparkles className="w-4 h-4 text-secondary" />
+                      <p className="text-sm font-medium text-foreground">Receba seu relatório de ROI personalizado</p>
+                    </div>
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        placeholder="Seu nome"
+                        value={leadData.name}
+                        onChange={(e) => setLeadData(prev => ({ ...prev, name: e.target.value }))}
+                        className="w-full px-4 py-2.5 rounded-xl bg-background/50 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-secondary/50 transition-all"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Seu e-mail"
+                        value={leadData.email}
+                        onChange={(e) => setLeadData(prev => ({ ...prev, email: e.target.value }))}
+                        className="w-full px-4 py-2.5 rounded-xl bg-background/50 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-secondary/50 transition-all"
+                      />
+                      <input
+                        type="tel"
+                        placeholder="WhatsApp (71) 99999-9999"
+                        value={leadData.whatsapp}
+                        onChange={(e) => setLeadData(prev => ({ ...prev, whatsapp: e.target.value }))}
+                        className="w-full px-4 py-2.5 rounded-xl bg-background/50 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-secondary/50 transition-all"
+                      />
+                      <Button
+                        variant="cta"
+                        size="lg"
+                        className="w-full group"
+                        disabled={submitting || !leadData.name || !leadData.email}
+                        onClick={() => {
+                          setSubmitting(true);
+                          const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
+                          leads.push({
+                            ...leadData,
+                            source: "roi_calculator",
+                            roi_data: { employees, salary, hoursPerWeek, monthlyLoss, potentialSavings },
+                            timestamp: new Date().toISOString(),
+                            id: crypto.randomUUID(),
+                          });
+                          localStorage.setItem("sintaxia_leads", JSON.stringify(leads));
+                          setLeadSubmitted(true);
+                          setSubmitting(false);
+                          setTimeout(() => {
+                            const msg = `Olá! Sou ${leadData.name}. Calculei uma economia potencial de ${formatCurrency(potentialSavings)}/mês na calculadora e quero implementar esses agentes na minha empresa.`;
+                            window.open(`https://wa.me/5571982435004?text=${encodeURIComponent(msg)}`, "_blank");
+                          }, 2000);
+                        }}
+                      >
+                        Receber meu ROI personalizado
+                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Success state */}
+                {leadSubmitted && (
+                  <div className="mt-6 p-6 glass-card border border-secondary/30 text-center animate-fade-up">
+                    <CheckCircle className="w-10 h-10 text-secondary mx-auto mb-3" />
+                    <p className="font-heading font-bold text-lg text-foreground mb-1">Relatório enviado! 🚀</p>
+                    <p className="text-sm text-muted-foreground">Redirecionando para WhatsApp...</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

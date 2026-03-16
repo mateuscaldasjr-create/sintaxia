@@ -67,9 +67,11 @@ const AboutFounder = () => {
               </p>
             </div>
 
-            <Button variant="cta" size="xl" className="group">
-              Agendar Diagnóstico
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="cta" size="xl" className="group" asChild>
+              <a href="https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação." target="_blank" rel="noopener noreferrer">
+                Agendar Diagnóstico
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
         </div>
