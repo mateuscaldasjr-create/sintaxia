@@ -18,10 +18,10 @@ const Navigation = () => {
   const navLinks = [
     { href: "/#servicos", label: "Serviços" },
     { href: "/#metodo", label: "Método" },
-    { href: "/#cases", label: "Cases" },
+    { href: "/cases", label: "Cases" },
     { href: "/#faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
-    { href: "/#diagnostico", label: "Diagnóstico" },
+    { href: "/diagnostico", label: "Diagnóstico" },
   ];
 
   return (
