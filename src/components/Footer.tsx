@@ -31,41 +31,13 @@ const Footer = () => {
           {/* Logo & Copyright */}
           <div className="flex flex-col items-center lg:items-start gap-4">
             <a href="#" className="flex items-center gap-3 group">
-              {/* SI Monogram Logo */}
-              <div className="relative w-8 h-8 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 40 40"
-                  className="w-full h-full"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="2"
-                    y="2"
-                    width="36"
-                    height="36"
-                    rx="4"
-                    className="stroke-secondary transition-all duration-300 group-hover:stroke-primary"
-                    strokeWidth="1.5"
-                    fill="none"
-                  />
-                  <path
-                    d="M12 14 H20 A4 4 0 0 1 24 18 V18 A4 4 0 0 1 20 22 H16 A4 4 0 0 0 12 26 V26 A4 4 0 0 0 16 30 H24"
-                    className="stroke-secondary transition-all duration-300 group-hover:stroke-primary"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  <line
-                    x1="28"
-                    y1="14"
-                    x2="28"
-                    y2="30"
-                    className="stroke-secondary transition-all duration-300 group-hover:stroke-primary"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
+              {/* Sintaxia New Logo */}
+              <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-md">
+                <img 
+                  src="/sintaxia-logo.png" 
+                  alt="Sintax IA Logo" 
+                  className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500" 
+                />
               </div>
               <span className="font-heading font-bold text-lg text-foreground">
                 Sintax <span className="text-secondary">IA</span>
