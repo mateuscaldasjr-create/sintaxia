@@ -1,8 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+    },
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background Elements */}
@@ -18,31 +39,36 @@ const HeroSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-hero-glow pointer-events-none" />
 
       <div className="container relative z-10 px-4 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div 
+          className="max-w-4xl mx-auto text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-up border border-secondary/20 bg-background/50 backdrop-blur-md">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 border border-secondary/20 bg-background/50 backdrop-blur-md">
             <Zap className="w-4 h-4 text-secondary animate-pulse" />
             <span className="text-sm font-medium text-foreground/90">Automação Inteligente para Negócios</span>
-          </div>
+          </motion.div>
 
           {/* Main Headline */}
-          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-up animate-delay-100">
+          <motion.h1 variants={itemVariants} className="font-heading font-black text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
             A arquitetura da eficiência.{" "}
             <br className="hidden md:block" />
             <span className="text-gradient-fluid drop-shadow-sm">
               A velocidade da execução
             </span>
             <span className="text-primary text-glow-cyan">.</span>
-          </h1>
+          </motion.h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animate-delay-200">
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             Projetamos Agentes de IA customizados que eliminam gargalos operacionais 
             e transformam processos lentos em fluxos de trabalho autônomos.
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animate-delay-300">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="cta" size="xl" className="group" asChild>
               <Link to="/diagnostico">
                 Agendar Diagnóstico Gratuito
@@ -52,10 +78,10 @@ const HeroSection = () => {
             <Button variant="glass" size="xl">
               Ver Casos de Sucesso
             </Button>
-          </div>
+          </motion.div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 pt-8 border-t border-border/30 animate-fade-up animate-delay-400">
+          <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-border/30">
             <p className="text-sm text-muted-foreground mb-6">
               Tecnologias que impulsionam nossos agentes
             </p>
@@ -87,8 +113,8 @@ const HeroSection = () => {
                 <span className="text-sm font-medium">n8n</span>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Bottom Gradient Fade */}

@@ -1,38 +1,69 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import founderImage from "@/assets/founder-mateus-passos.png";
 
 const AboutFounder = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+    },
+  };
+
   return (
-    <section id="sobre" className="py-24 relative overflow-hidden">
+    <section id="sobre" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Background orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <motion.div 
+        className="container mx-auto px-4 relative z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Professional Portrait Placeholder */}
-          <div className="relative">
+          <motion.div variants={itemVariants} className="relative">
             <div className="glass-card rounded-3xl overflow-hidden border border-border/50 aspect-[3/4] relative group max-w-md mx-auto lg:mx-0">
               {/* Founder Photo */}
-              <img 
+              <motion.img 
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 src={founderImage} 
                 alt="Mateus Passos - Founder & Director of Strategy" 
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
               
               {/* Subtle overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
 
               {/* Glow border on hover */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/30 transition-colors duration-500" />
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-secondary/30 transition-colors duration-500 pointer-events-none" />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Content */}
           <div className="space-y-8">
-            <div>
+            <motion.div variants={itemVariants}>
               <p className="text-secondary font-body font-medium tracking-widest uppercase mb-4">
                 Sobre o Fundador
               </p>
@@ -56,27 +87,34 @@ const AboutFounder = () => {
                   e resultados que falam por si.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Founder Signature */}
-            <div className="pt-4 border-t border-border/30">
-              <p className="text-secondary text-glow-cyan font-heading font-bold text-xl mb-1">
-                Mateus Passos
-              </p>
-              <p className="text-muted-foreground font-body text-sm tracking-wide">
-                Founder & Director of Strategy
-              </p>
-            </div>
+            <motion.div variants={itemVariants}>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button variant="cta" size="xl" className="group w-full sm:w-auto" asChild>
+                  <Link to="/diagnostico">
+                    Consultoria Estratégica
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button variant="glass" size="xl" className="w-full sm:w-auto">
+                  Conectar no LinkedIn
+                </Button>
+              </div>
 
-            <Button variant="cta" size="xl" className="group" asChild>
-              <Link to="/diagnostico">
-                Agendar Diagnóstico
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+              {/* Signature/Name */}
+              <div className="mt-12 pt-8 border-t border-border/30">
+                <p className="font-heading font-bold text-xl text-foreground">
+                  Mateus Passos
+                </p>
+                <p className="text-secondary text-sm font-medium tracking-wide">
+                  FUNDADOR & DIRETOR DE IA
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
