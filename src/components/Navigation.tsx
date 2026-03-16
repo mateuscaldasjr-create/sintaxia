@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,8 +23,6 @@ const Navigation = () => {
     { href: "/blog", label: "Blog" },
     { href: "/#diagnostico", label: "Diagnóstico" },
   ];
-
-  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
 
   return (
     <nav
@@ -100,9 +99,9 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="cta" size="default" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <Link to="/diagnostico">
                 Agendar Diagnóstico
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -130,9 +129,9 @@ const Navigation = () => {
                 </a>
               ))}
               <Button variant="cta" size="lg" className="mt-4" asChild>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Link to="/diagnostico" onClick={() => setIsMobileMenuOpen(false)}>
                   Agendar Diagnóstico
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

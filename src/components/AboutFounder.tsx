@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import founderImage from "@/assets/founder-mateus-passos.png";
 
 const AboutFounder = () => {
@@ -68,10 +69,10 @@ const AboutFounder = () => {
             </div>
 
             <Button variant="cta" size="xl" className="group" asChild>
-              <a href="https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação." target="_blank" rel="noopener noreferrer">
+              <Link to="/diagnostico">
                 Agendar Diagnóstico
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

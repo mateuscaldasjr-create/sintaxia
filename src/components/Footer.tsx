@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Linkedin, Instagram, Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
-
   return (
     <footer id="contato" className="relative py-20 overflow-hidden border-t border-border/30">
       {/* Background */}
@@ -20,10 +19,10 @@ const Footer = () => {
             Agende uma conversa gratuita e descubra como podemos acelerar sua operação.
           </p>
           <Button variant="cta" size="xl" className="group" asChild>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <Link to="/diagnostico">
               Agendar Diagnóstico Gratuito
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
           </Button>
         </div>
 
