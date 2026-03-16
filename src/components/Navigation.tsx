@@ -15,11 +15,12 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "#servicos", label: "Serviços" },
-    { href: "#metodo", label: "Método" },
-    { href: "#cases", label: "Cases" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#diagnostico", label: "Diagnóstico" },
+    { href: "/#servicos", label: "Serviços" },
+    { href: "/#metodo", label: "Método" },
+    { href: "/#cases", label: "Cases" },
+    { href: "/#faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" },
+    { href: "/#diagnostico", label: "Diagnóstico" },
   ];
 
   const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
@@ -35,7 +36,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             {/* SI Monogram Logo */}
             <div className="relative w-10 h-10 flex items-center justify-center">
               <svg
