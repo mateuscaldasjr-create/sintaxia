@@ -38,7 +38,7 @@ const AboutFounder = () => {
               </p>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight mb-6">
                 A Mentalidade{" "}
-                <span className="text-secondary text-glow-cyan">Sintax</span>
+                <span className="text-gradient-fluid drop-shadow-sm">Sintax</span>
               </h2>
               <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
                 <p>

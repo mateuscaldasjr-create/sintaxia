@@ -45,7 +45,7 @@ const MethodologySection = () => {
             <span className="text-sm text-muted-foreground">Nossa Metodologia</span>
           </div>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
-            Do Diagnóstico à <span className="text-primary">Transformação</span>
+            Do Diagnóstico à <span className="text-gradient-fluid drop-shadow-sm">Transformação</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Um processo estruturado para garantir resultados consistentes

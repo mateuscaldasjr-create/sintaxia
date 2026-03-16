@@ -84,7 +84,7 @@ const Index = () => {
           <div className="container relative z-10 px-4 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
-                Solicite seu <span className="text-secondary text-glow-cyan">Diagnóstico</span> Gratuito
+                Solicite seu <span className="text-gradient-fluid drop-shadow-sm">Diagnóstico</span> Gratuito
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Preencha o formulário e receba uma análise personalizada de como a IA pode transformar sua operação

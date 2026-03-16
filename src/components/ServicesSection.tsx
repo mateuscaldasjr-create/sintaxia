@@ -39,7 +39,7 @@ const ServicesSection = () => {
             <span className="text-sm text-muted-foreground">Nossas Soluções</span>
           </div>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
-            Agentes de IA para cada <span className="text-secondary text-glow-cyan">Desafio</span>
+            Agentes de IA para cada <span className="text-gradient-fluid drop-shadow-sm">Desafio</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Soluções personalizadas que transformam a forma como sua empresa opera

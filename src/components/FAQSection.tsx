@@ -45,7 +45,7 @@ const FAQSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-            Dúvidas <span className="text-secondary text-glow-cyan">Frequentes</span>
+            Dúvidas <span className="text-gradient-fluid drop-shadow-sm">Frequentes</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
             Respostas diretas para as perguntas mais comuns sobre nossa operação.

@@ -9,9 +9,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 tech-grid opacity-30" />
       
       {/* Gradient Orbs */}
-      <div className="gradient-orb w-[600px] h-[600px] bg-secondary/20 top-[-200px] left-[-200px] animate-float" />
-      <div className="gradient-orb w-[500px] h-[500px] bg-primary/15 bottom-[-150px] right-[-150px] animate-float" style={{ animationDelay: '-3s' }} />
-      <div className="gradient-orb w-[300px] h-[300px] bg-secondary/10 top-1/3 right-1/4 animate-float" style={{ animationDelay: '-5s' }} />
+      <div className="gradient-orb w-[600px] h-[600px] bg-secondary/20 top-[-150px] left-[-200px] animate-float" />
+      <div className="gradient-orb w-[500px] h-[500px] bg-primary/20 bottom-[-150px] right-[-150px] animate-float mix-blend-screen" style={{ animationDelay: '-3s' }} />
+      <div className="gradient-orb w-[400px] h-[400px] bg-secondary/15 top-1/4 right-1/4 animate-float" style={{ animationDelay: '-5s' }} />
+      <div className="gradient-orb w-[300px] h-[300px] bg-primary/10 bottom-1/3 left-1/4 animate-float" style={{ animationDelay: '-7s' }} />
       
       {/* Hero Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-hero-glow pointer-events-none" />
@@ -19,18 +20,19 @@ const HeroSection = () => {
       <div className="container relative z-10 px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-up">
-            <Zap className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground">Automação de Ponta para Empresas</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-up border border-secondary/20 bg-background/50 backdrop-blur-md">
+            <Zap className="w-4 h-4 text-secondary animate-pulse" />
+            <span className="text-sm font-medium text-foreground/90">Automação Inteligente para Negócios</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-heading font-black text-4xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-up animate-delay-100">
+          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-up animate-delay-100">
             A arquitetura da eficiência.{" "}
-            <span className="text-secondary text-glow-cyan">
+            <br className="hidden md:block" />
+            <span className="text-gradient-fluid drop-shadow-sm">
               A velocidade da execução
             </span>
-            <span className="text-primary">.</span>
+            <span className="text-primary text-glow-cyan">.</span>
           </h1>
 
           {/* Subheadline */}
