@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import founderImage from "@/assets/founder-mateus-passos.jpeg";
+import founderImage from "@/assets/founder-mateus-passos.png";
 
 const AboutFounder = () => {
   return (
