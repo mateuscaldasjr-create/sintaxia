@@ -39,7 +39,7 @@ const Navigation = () => {
             {/* Sintaxia New Logo */}
             <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-md">
               <img 
-                src="/sintaxia-logo.png" 
+                src="/sintaxia-logo-transparent.png" 
                 alt="Sintax IA Logo" 
                 className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500" 
               />
