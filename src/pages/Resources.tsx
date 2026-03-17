@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, FileText, Download, Target, TerminalSquare, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
@@ -44,13 +45,28 @@ const Resources = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", company: "" });
 
-  const handleDownload = (e: React.FormEvent) => {
+  const handleDownload = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call to save Lead
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send Lead to Supabase Database
+      const { error: supabaseError } = await supabase
+        .from('sintaxia_leads')
+        .insert([
+          { 
+            name: formData.name, 
+            email: formData.email, 
+            company: formData.company,
+            whatsapp: "Não Coletado",
+            source: `material_rico_${selectedResource?.id}`
+          }
+        ]);
+        
+      if (supabaseError) {
+        console.error("Supabase Error:", supabaseError);
+      }
+
       setSelectedResource(null);
       setFormData({ name: "", email: "", company: "" });
       
@@ -59,7 +75,11 @@ const Resources = () => {
         description: "Enviamos o PDF diretamente para o seu e-mail.",
         className: "bg-secondary/10 border-secondary text-foreground",
       });
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

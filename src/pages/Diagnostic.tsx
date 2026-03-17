@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Building, CheckCircle, Lightbulb, TrendingDown, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 
 type FormState = {
   name: string;
@@ -45,7 +46,7 @@ const DiagnosticPage = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (currentStep < 2) {
       handleNext();
@@ -54,24 +55,46 @@ const DiagnosticPage = () => {
 
     setIsSubmitting(true);
 
-    // Save lead
-    const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
-    const newLead = {
-      ...formData,
-      source: "diagnostico_multi_step",
-      timestamp: new Date().toISOString(),
-      id: crypto.randomUUID(),
-      status: "novo",
-      qualificationScore: calculateScore(formData)
-    };
-    leads.push(newLead);
-    localStorage.setItem("sintaxia_leads", JSON.stringify(leads));
+    try {
+      const score = calculateScore(formData);
+      
+      const { error: supabaseError } = await supabase
+        .from('sintaxia_diagnostics')
+        .insert([
+          { 
+            name: formData.name, 
+            email: formData.email, 
+            whatsapp: formData.whatsapp,
+            company_name: formData.companyName,
+            team_size: formData.teamSize,
+            biggest_bottleneck: formData.biggestBottleneck,
+            score: score
+          }
+        ]);
+        
+      if (supabaseError) {
+        console.error("Supabase Error:", supabaseError);
+      }
 
-    // Simulate API delay
-    setTimeout(() => {
-      setIsSubmitting(false);
+      // Save lead locally as backup
+      const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
+      const newLead = {
+        ...formData,
+        source: "diagnostico_multi_step",
+        timestamp: new Date().toISOString(),
+        id: crypto.randomUUID(),
+        status: "novo",
+        qualificationScore: score
+      };
+      leads.push(newLead);
+      localStorage.setItem("sintaxia_leads", JSON.stringify(leads));
+
       setCurrentStep(3); // Result step
-    }, 1500);
+    } catch (error) {
+       console.error(error);
+    } finally {
+       setIsSubmitting(false);
+    }
   };
 
   const calculateScore = (data: FormState) => {

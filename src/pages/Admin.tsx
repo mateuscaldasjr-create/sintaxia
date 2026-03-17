@@ -12,6 +12,7 @@ import {
   Trash2,
   ExternalLink
 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 type Lead = {
   id: string;
@@ -41,17 +42,70 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("leads");
 
   useEffect(() => {
-    const rawLeads = localStorage.getItem("sintaxia_leads");
-    if (rawLeads) {
+    const fetchLeads = async () => {
       try {
-        const parsed = JSON.parse(rawLeads);
-        // Sort by newest
-        parsed.sort((a: Lead, b: Lead) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
-        setLeads(parsed);
+        // Fetch from Supabase
+        const { data: leadsData } = await supabase.from('sintaxia_leads').select('*');
+        const { data: diagnosticsData } = await supabase.from('sintaxia_diagnostics').select('*');
+        
+        let combinedLeads: Lead[] = [];
+        
+        if (leadsData && leadsData.length > 0) {
+          leadsData.forEach(lead => {
+             combinedLeads.push({
+               id: lead.id?.toString() || crypto.randomUUID(),
+               name: lead.name,
+               email: lead.email,
+               whatsapp: lead.whatsapp,
+               company: lead.company,
+               source: lead.source,
+               timestamp: lead.created_at || new Date().toISOString(),
+               status: lead.status || "novo"
+             });
+          });
+        }
+        
+        if (diagnosticsData && diagnosticsData.length > 0) {
+          diagnosticsData.forEach(diag => {
+            combinedLeads.push({
+               id: diag.id?.toString() || crypto.randomUUID(),
+               name: diag.name,
+               email: diag.email,
+               whatsapp: diag.whatsapp,
+               companyName: diag.company_name,
+               teamSize: diag.team_size,
+               biggestBottleneck: diag.biggest_bottleneck,
+               qualificationScore: diag.score,
+               source: "diagnostico_multi_step",
+               timestamp: diag.created_at || new Date().toISOString(),
+               status: diag.status || "novo"
+            });
+          });
+        }
+        
+        if (combinedLeads.length > 0) {
+          combinedLeads.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+          setLeads(combinedLeads);
+        } else {
+          // Fallback to local storage if DB is empty or fails / keys not provided yet
+          const rawLeads = localStorage.getItem("sintaxia_leads");
+          if (rawLeads) {
+            const parsed = JSON.parse(rawLeads);
+            parsed.sort((a: Lead, b: Lead) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+            setLeads(parsed);
+          }
+        }
       } catch (e) {
-        console.error("Erro ao carregar leads", e);
+        console.error("Erro ao carregar leads da nuvem", e);
+        // Pure fallback on catch
+        const rawLeads = localStorage.getItem("sintaxia_leads");
+        if (rawLeads) {
+          setLeads(JSON.parse(rawLeads).sort((a: Lead, b: Lead) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
+        }
       }
-    }
+    };
+
+    fetchLeads();
   }, []);
 
   const updateLeadStatus = (id: string, newStatus: string) => {

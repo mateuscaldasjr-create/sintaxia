@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Calculator, ArrowRight, TrendingUp, CheckCircle, Sparkles } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const ROICalculator = () => {
   const [employees, setEmployees] = useState(10);
@@ -199,23 +200,45 @@ const ROICalculator = () => {
                         size="lg"
                         className="w-full group"
                         disabled={submitting || !leadData.name || !leadData.email}
-                        onClick={() => {
+                        onClick={async () => {
                           setSubmitting(true);
-                          const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
-                          leads.push({
-                            ...leadData,
-                            source: "roi_calculator",
-                            roi_data: { employees, salary, hoursPerWeek, monthlyLoss, potentialSavings },
-                            timestamp: new Date().toISOString(),
-                            id: crypto.randomUUID(),
-                          });
-                          localStorage.setItem("sintaxia_leads", JSON.stringify(leads));
-                          setLeadSubmitted(true);
-                          setSubmitting(false);
-                          setTimeout(() => {
-                            const msg = `Olá! Sou ${leadData.name}. Calculei uma economia potencial de ${formatCurrency(potentialSavings)}/mês na calculadora e quero implementar esses agentes na minha empresa.`;
-                            window.open(`https://wa.me/5571982435004?text=${encodeURIComponent(msg)}`, "_blank");
-                          }, 2000);
+                          
+                          try {
+                            const { error: supabaseError } = await supabase
+                              .from('sintaxia_leads')
+                              .insert([
+                                { 
+                                  name: leadData.name, 
+                                  email: leadData.email, 
+                                  whatsapp: leadData.whatsapp,
+                                  source: "roi_calculator"
+                                }
+                              ]);
+                              
+                            if (supabaseError) {
+                              console.error("Supabase Error:", supabaseError);
+                            }
+                            
+                            const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
+                            leads.push({
+                              ...leadData,
+                              source: "roi_calculator",
+                              roi_data: { employees, salary, hoursPerWeek, monthlyLoss, potentialSavings },
+                              timestamp: new Date().toISOString(),
+                              id: crypto.randomUUID(),
+                            });
+                            localStorage.setItem("sintaxia_leads", JSON.stringify(leads));
+                            
+                            setLeadSubmitted(true);
+                            setTimeout(() => {
+                              const msg = `Olá! Sou ${leadData.name}. Calculei uma economia potencial de ${formatCurrency(potentialSavings)}/mês na calculadora e quero implementar esses agentes na minha empresa.`;
+                              window.open(`https://wa.me/5571982435004?text=${encodeURIComponent(msg)}`, "_blank");
+                            }, 2000);
+                          } catch (error) {
+                            console.error(error);
+                          } finally {
+                            setSubmitting(false);
+                          }
                         }}
                       >
                         Receber meu ROI personalizado

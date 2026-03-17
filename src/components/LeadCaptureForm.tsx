@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface LeadData {
   name: string;
@@ -62,7 +63,25 @@ const LeadCaptureForm = ({
     setIsSubmitting(true);
 
     try {
-      // Save lead to localStorage as backup (will be replaced with Supabase)
+      // Send Lead to Supabase Database
+      const { error: supabaseError } = await supabase
+        .from('sintaxia_leads')
+        .insert([
+          { 
+            name: formData.name, 
+            email: formData.email, 
+            company: formData.company || null, 
+            whatsapp: formData.whatsapp,
+            source: source
+          }
+        ]);
+        
+      if (supabaseError) {
+        console.error("Supabase Error:", supabaseError);
+        // Fallback or just log it, we'll continue to local storage as backup
+      }
+
+      // Save lead to localStorage as backup
       const leads = JSON.parse(localStorage.getItem("sintaxia_leads") || "[]");
       const newLead = {
         ...formData,

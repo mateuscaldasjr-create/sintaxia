@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Sintax IA custom variants
-        cta: "bg-primary text-primary-foreground font-bold shadow-[0_0_20px_hsl(22_100%_50%/0.4)] hover:scale-105 hover:shadow-[0_0_40px_hsl(22_100%_50%/0.6)]",
+        cta: "bg-primary text-primary-foreground font-bold shadow-[0_0_20px_hsl(271_76%_53%/0.4)] hover:scale-105 hover:shadow-[0_0_40px_hsl(271_76%_53%/0.6)]",
         glass: "bg-white/5 backdrop-blur-xl border border-white/10 text-foreground hover:bg-white/10 hover:shadow-[0_0_30px_hsl(185_100%_50%/0.2)]",
         cyan: "bg-secondary/10 text-secondary border border-secondary/30 hover:bg-secondary/20 hover:border-secondary/50",
       },
