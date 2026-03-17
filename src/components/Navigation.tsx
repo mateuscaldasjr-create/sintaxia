@@ -19,6 +19,7 @@ const Navigation = () => {
     { href: "/#servicos", label: "Serviços" },
     { href: "/#metodo", label: "Método" },
     { href: "/cases", label: "Cases" },
+    { href: "/recursos", label: "Materiais Grátis" },
     { href: "/#faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
     { href: "/diagnostico", label: "Diagnóstico" },
