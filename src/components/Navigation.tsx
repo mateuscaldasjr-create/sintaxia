@@ -39,14 +39,14 @@ const Navigation = () => {
           <a href="/" className="flex items-center gap-3 group">
             {/* Sintaxia New Logo */}
             <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-md">
-              <img 
-                src="/sintaxia-logo-transparent.png" 
-                alt="Sintax IA Logo" 
-                className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500" 
+              <img
+                src="/sintaxia-logo-transparent.png"
+                alt="Vortex AI Labs Logo"
+                className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500"
               />
             </div>
             <span className="font-heading font-bold text-xl text-foreground">
-              Sintax <span className="text-secondary">IA</span>
+              Vortex <span className="text-secondary">AI Labs</span>
             </span>
           </a>
 

@@ -69,11 +69,11 @@ const AboutFounder = () => {
               </p>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight mb-6">
                 A Mentalidade{" "}
-                <span className="text-gradient-fluid drop-shadow-sm">Sintax</span>
+                <span className="text-gradient-fluid drop-shadow-sm">Vortex</span>
               </h2>
               <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
                 <p>
-                  Na Sintax IA, construímos a ponte entre a complexidade tecnológica e a simplicidade operacional. 
+                  Na Vortex AI Labs, construímos a ponte entre a complexidade tecnológica e a simplicidade operacional. 
                   Cada agente que desenvolvemos nasce de uma obsessão: eliminar a fricção entre o que sua empresa 
                   precisa fazer e a velocidade com que consegue executar.
                 </p>

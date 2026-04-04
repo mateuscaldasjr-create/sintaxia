@@ -24,7 +24,7 @@ const faqs = [
     id: "tempo",
     icon: Clock,
     question: "Tempo para Resultados?",
-    answer: "Diferente de consultorias de TI tradicionais, a Sintax IA foca em agilidade. O ciclo médio de auditoria, treinamento da IA e implementação é de 15 a 21 dias. Uma vez ativo, o agente começa a processar leads e organizar sua agenda imediatamente, com ROI visível já no primeiro mês.",
+    answer: "Diferente de consultorias de TI tradicionais, a Vortex AI Labs foca em agilidade. O ciclo médio de auditoria, treinamento da IA e implementação é de 15 a 21 dias. Uma vez ativo, o agente começa a processar leads e organizar sua agenda imediatamente, com ROI visível já no primeiro mês.",
   },
   {
     id: "integracoes",
@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Sintax+IA+e+gostaria+de+um+diagnóstico+para+minha+operação.";
+  const whatsappLink = "https://wa.me/5571982435004?text=Olá!+Vim+pelo+site+da+Vortex+AI+Labs+e+gostaria+de+um+diagnóstico+para+minha+operação.";
 
   return (
     <section id="faq" className="py-24 relative">

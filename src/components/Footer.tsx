@@ -33,18 +33,18 @@ const Footer = () => {
             <a href="#" className="flex items-center gap-3 group">
               {/* Sintaxia New Logo */}
               <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-md">
-                <img 
-                  src="/sintaxia-logo-transparent.png" 
-                  alt="Sintax IA Logo" 
-                  className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500" 
+                <img
+                  src="/sintaxia-logo-transparent.png"
+                  alt="Vortex AI Labs Logo"
+                  className="w-full h-full object-cover scale-[1.3] group-hover:scale-[1.4] transition-transform duration-500"
                 />
               </div>
               <span className="font-heading font-bold text-lg text-foreground">
-                Sintax <span className="text-secondary">IA</span>
+                Vortex <span className="text-secondary">AI Labs</span>
               </span>
             </a>
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Sintax IA. Todos os direitos reservados.
+              © {new Date().getFullYear()} Vortex AI Labs. Todos os direitos reservados.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ const Footer = () => {
         {/* Compliance Text */}
         <div className="mt-8 text-center">
           <p className="text-xs text-muted-foreground/40 max-w-2xl mx-auto leading-relaxed">
-            Sintax IA - Consultoria Estratégica de Inteligência Artificial. Projetos desenvolvidos sob rigorosos padrões de segurança e performance.
+            Vortex AI Labs - Consultoria Estratégica de Inteligência Artificial. Projetos desenvolvidos sob rigorosos padrões de segurança e performance.
           </p>
         </div>
       </div>
