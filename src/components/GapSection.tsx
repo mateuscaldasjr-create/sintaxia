@@ -79,7 +79,7 @@ const GapSection = () => {
                   <Zap className="w-6 h-6 text-secondary" />
                 </div>
                 <h3 className="font-heading font-bold text-xl">
-                  Operação <span className="text-secondary">Sintax IA</span>
+                  Operação <span className="text-secondary">Vortex AI Labs</span>
                 </h3>
               </div>
               <p className="text-foreground/80 text-sm mb-6 leading-relaxed">

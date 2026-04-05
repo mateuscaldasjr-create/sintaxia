@@ -14,7 +14,7 @@ const INITIAL_MESSAGE: Message = {
   id: "welcome",
   role: "assistant",
   content:
-    "Olá! 👋 Sou o assistente virtual da **Sintax IA**, movido por Inteligência Artificial real.\n\nPosso te ajudar a entender como **agentes de IA** podem transformar sua operação.\n\nPergunte-me qualquer coisa sobre nossos serviços, cases de sucesso, ou como podemos automatizar sua empresa!",
+    "Olá! 👋 Sou o assistente virtual da **Vortex AI Labs**, movido por Inteligência Artificial real.\n\nPosso te ajudar a entender como **agentes de IA** podem transformar sua operação.\n\nPergunte-me qualquer coisa sobre nossos serviços, cases de sucesso, ou como podemos automatizar sua empresa!",
   timestamp: new Date(),
 };
 
@@ -188,7 +188,7 @@ const AIChatWidget = () => {
             </div>
             <div className="flex-1">
               <h4 className="font-heading font-bold text-sm text-foreground">
-                Assistente Sintax IA
+                Assistente Vortex AI Labs
               </h4>
               <p className="text-xs text-green-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -274,7 +274,7 @@ const AIChatWidget = () => {
               </Button>
             </div>
             <p className="text-[10px] text-muted-foreground/40 text-center mt-2">
-              Powered by Sintax IA • Inteligência Artificial Real
+              Powered by Vortex AI Labs • Inteligência Artificial Real
             </p>
           </div>
         </div>
